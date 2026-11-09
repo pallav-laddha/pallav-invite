@@ -86,6 +86,11 @@
       user-select: none;
     }
 
+    #familyBlessingsSection,
+    #rsvpModal {
+      user-select: text;
+    }
+
     body {
       background-color: #fdf6f0;
       background-image:
@@ -1255,10 +1260,6 @@
       <button id="replayPortalBtn" onclick="resetPortalOpening()" class="hidden items-center gap-2 px-3.5 py-2 rounded-full bg-[#fff9f6]/95 hover:bg-[#fceeed] text-[#7a2836] border border-[#d89aa6] text-xs font-semibold shadow-[0_6px_20px_rgba(140,60,75,0.15)] transition-all whitespace-nowrap shrink-0 cursor-pointer">
         <i class="fa-solid fa-rotate-left text-[#b83348]"></i>
         <span>Replay Window</span>
-      </button>
-      <button id="replayMahalBtn" onclick="resetMahalPortalOpening()" class="hidden items-center gap-2 px-3.5 py-2 rounded-full bg-[#fff9f6]/95 hover:bg-[#fceeed] text-[#7a2836] border border-[#d89aa6] text-xs font-semibold shadow-[0_6px_20px_rgba(140,60,75,0.15)] transition-all whitespace-nowrap shrink-0 cursor-pointer">
-        <i class="fa-solid fa-archway text-[#b83348]"></i>
-        <span>Replay Mahal Gate</span>
       </button>
     </div>
 
@@ -2607,22 +2608,22 @@
       <div id="royalMarigoldCascade" class="royal-marigold-cascade" aria-hidden="true"></div>
 
       <!-- 6. Centered Poetic Interlude Calligraphy (No Delhi Reference, z-index: 10) -->
-      <!-- Stage 1: Upper-Middle (~30% scroll) -->
+      <!-- Stage 1: Upper-Middle (~30% scroll) — Departure -->
       <div id="poeticStageUpper" class="poetic-stage-card poetic-stage-upper">
-        <div class="inline-flex items-center space-x-2 mb-1.5 opacity-80">
+        <div class="inline-flex items-center space-x-2 mb-1.5 opacity-85">
           <span class="w-7 h-[1px] bg-[#8c433e]/50"></span>
-          <span class="font-cinzel text-[9px] tracking-[0.28em] uppercase text-[#7a2832]">Chapter I &bull; Farewell to Bengal</span>
+          <span class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.28em] uppercase text-[#7a2832] font-semibold">A Shared Horizon</span>
           <span class="w-7 h-[1px] bg-[#8c433e]/50"></span>
         </div>
-        <p class="font-cormorant italic text-2xl sm:text-3xl md:text-[34px] text-[#5a222b] font-semibold leading-snug tracking-wide">
-          &ldquo;From the historic banks of the Hooghly...&rdquo;
+        <p class="font-cormorant italic text-2xl sm:text-3xl md:text-[34px] text-[#5a222b] font-semibold leading-snug tracking-wide max-w-md mx-auto">
+          &ldquo;Carrying every step of the journey that brought us together...&rdquo;
         </p>
       </div>
 
-      <!-- Stage 2: Lower-Middle (~70% scroll, accompanied by ornamental Rajasthani arch divider) -->
+      <!-- Stage 2: Lower-Middle (~70% scroll) — Arrival -->
       <div id="poeticStageLower" class="poetic-stage-card poetic-stage-lower">
         <!-- Subtle Ornamental Rajasthani Cusped Arch Divider -->
-        <div class="flex justify-center mb-2">
+        <div class="flex justify-center mb-1.5">
           <svg width="156" height="34" viewBox="0 0 156 34" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-85">
             <path d="M8 28 H52 C56 22, 61 19, 65 21 C68 14, 73 10, 78 4 C83 10, 88 14, 91 21 C95 19, 100 22, 104 28 H148" stroke="#7a2832" stroke-width="1.2" stroke-linecap="round" />
             <path d="M24 31 H132" stroke="#b87624" stroke-width="0.75" stroke-dasharray="3 4" />
@@ -2631,14 +2632,14 @@
             <circle cx="112" cy="28" r="1.8" fill="#7a2832" />
           </svg>
         </div>
-        <p class="font-cormorant italic text-2xl sm:text-3xl md:text-[34px] text-[#5a222b] font-semibold leading-snug tracking-wide">
-          &ldquo;...to the royal heart of Hadoti.&rdquo;
-        </p>
-        <div class="inline-flex items-center space-x-2 mt-1.5 opacity-85">
+        <div class="inline-flex items-center space-x-2 mb-1.5 opacity-85">
           <span class="w-6 h-[1px] bg-[#9e5b24]/60"></span>
-          <span class="font-cinzel text-[9px] tracking-[0.28em] uppercase text-[#8c433e]">Padharo Mhare Des &bull; Kota, Rajasthan</span>
+          <span class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.28em] uppercase text-[#8c433e] font-semibold">Padharo Mhare Des</span>
           <span class="w-6 h-[1px] bg-[#9e5b24]/60"></span>
         </div>
+        <p class="font-cormorant italic text-2xl sm:text-3xl md:text-[34px] text-[#5a222b] font-semibold leading-snug tracking-wide max-w-md mx-auto">
+          &ldquo;...into days filled with music, vows, and royal celebrations in Hadoti.&rdquo;
+        </p>
       </div>
 
       <!-- 7. SMOOTH "PADHARO MHARE DES" ROYAL ARCHWAY REVEAL (#kota-landing-popup) -->
@@ -2744,13 +2745,13 @@
               </svg>
             </div>
 
-            <!-- 1. Open-Paper Bridal Floral Wreath Countdown (Dec 12, 2026) -->
+            <!-- 1. Open-Paper Bridal Floral Wreath Countdown (Dec 11, 2026) -->
             <div class="relative z-10 pt-6 mb-16 max-w-xl mx-auto text-center px-2">
               <p class="font-cinzel text-[11px] uppercase tracking-[0.28em] font-semibold text-[#a64d5b] mb-1">
-                Shubh Vivah Countdown &nbsp;&middot;&nbsp; Dec 12, 2026
+                Shubh Vivah Countdown &nbsp;&middot;&nbsp; Dec 11, 2026
               </p>
               <h3 class="font-cormorant italic text-3xl sm:text-4xl text-[#5a222b] font-semibold tracking-wide mb-7">
-                The Rajasthan Wedding Begins In
+                The Wedding Celebrations Begin In
               </h3>
 
               <!-- 4 Dainty Hand-Drawn Floral Wreath Medallions (Matching Bengal Countdown) -->
@@ -2819,8 +2820,8 @@
                 </div>
               </div>
 
-              <p class="font-cinzel text-[10px] sm:text-[11px] uppercase tracking-[0.22em] sm:tracking-[0.28em] text-[#a64d5b] font-bold mb-2 text-center leading-relaxed">
-                <span class="block whitespace-nowrap">The Wedding Celebrations &nbsp;&middot;&nbsp; Kota, Rajasthan</span>
+              <p class="font-cinzel text-[10px] sm:text-[11px] uppercase tracking-[0.22em] sm:tracking-[0.28em] text-[#a64d5b] font-bold mb-2 text-center leading-relaxed mx-auto">
+                <span class="block text-center">The Wedding Celebrations</span>
                 <span class="block text-center mt-0.5">Dec 11 &amp; 12, 2026</span>
               </p>
               <p class="font-cormorant italic text-[#5a222b] text-xl sm:text-2xl font-semibold max-w-md mx-auto leading-relaxed">
@@ -2927,10 +2928,10 @@
                   <div class="timeline-node absolute left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#8e5b52] border border-[#fffdf9] z-20 transition-all duration-300"></div>
                   <div class="w-1/2 pl-8 sm:pl-12 text-left">
                     <h4 class="title-text font-cormorant font-semibold text-[#5a3832] text-2xl sm:text-3xl leading-tight transition">
-                      Bollywood Night &amp; Reception
+                      “Bollywood Night &amp; Reception”
                     </h4>
                     <p class="font-cormorant italic text-base sm:text-lg text-[#7d4e4d] mt-1 leading-snug">
-                      Join us for a night of music, dance, and endless laughter as we celebrate the union of Pallav &amp; Aiswarya
+                      Join us for a night of music, dance, and endless laughter as we celebrate the union of Pallav &amp; Aiswarya.
                     </p>
                     <p class="font-sans text-[11px] uppercase tracking-widest text-[#a66a68] mt-1.5">
                       at Maheshwari Resort, Kota
@@ -2954,7 +2955,7 @@
                       “NIKASI”
                     </h4>
                     <p class="font-cormorant italic text-base sm:text-lg text-[#7d4e4d] mt-1 leading-snug">
-                      Together with our families, we would cherish your presence at the auspicious ceremony of “NIKASI”
+                      Together with our families, we would cherish your presence at the auspicious ceremony of “NIKASI”.
                     </p>
                     <p class="font-sans text-[11px] uppercase tracking-widest text-[#a66a68] mt-1.5">
                       at Maheshwari Resort, Kota
@@ -3102,9 +3103,9 @@
         <div>
           <label class="block text-xs uppercase tracking-wider text-[#7a4946] font-semibold mb-1">Which Celebrations Will You Attend?</label>
           <select id="guestEventSelect" class="w-full px-4 py-2.5 rounded-xl bg-[#fff8f6] border border-[#d89aa6] text-[#4e2a28] text-sm focus:outline-none focus:border-[#b83348]">
-            <option value="All Wedding Celebrations in Kota (Dec 11-12)" selected>All Kota Celebrations (Dec 11–12)</option>
-            <option value="Dec 11 Celebrations (Mehendi, Haldi & Ring Ceremony)">Dec 11 • Mehendi, Haldi &amp; Ring Ceremony</option>
-            <option value="Dec 12 Celebrations (Shubh Vivah & Reception)">Dec 12 • Shubh Vivah &amp; Reception</option>
+            <option value="All Kota Celebrations (Dec 11–12)" selected>All Kota Celebrations (Dec 11–12)</option>
+            <option value="Dec 11 Celebrations (Basan, Haldi & Bollywood Night)">Dec 11 • Basan, Haldi &amp; Bollywood Night</option>
+            <option value="Dec 12 Celebrations (Nikasi & Shubh Vivah - Phere)">Dec 12 • Nikasi &amp; Shubh Vivah (Phere)</option>
           </select>
         </div>
         <div>
@@ -3168,8 +3169,7 @@
     //    - Rajasthani Countdown (#rajCountdownDays/Hours/Minutes/Seconds) -> Dec 12, 2026
     // =========================================================================
     function initCountdownTimer() {
-      const bengalTargetTime = new Date('2026-12-11T00:00:00').getTime();
-      const rajasthanTargetTime = new Date('2026-12-12T00:00:00+05:30').getTime();
+      const rajasthanTargetTime = new Date('2026-12-11T00:00:00+05:30').getTime();
 
       function renderTimerValues(targetMs, ids) {
         const now = new Date().getTime();
@@ -3200,12 +3200,6 @@
       }
 
       function updateCountdowns() {
-        renderTimerValues(bengalTargetTime, {
-          days: 'countdownDays',
-          hours: 'countdownHours',
-          minutes: 'countdownMinutes',
-          seconds: 'countdownSeconds'
-        });
         renderTimerValues(rajasthanTargetTime, {
           days: 'rajCountdownDays',
           hours: 'rajCountdownHours',

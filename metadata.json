@@ -1,0 +1,6 @@
+{
+  "name": "Pallav & Aiswarya Wedding Celebration",
+  "description": "From Desert Sands to the River Ganges — Royal wedding celebration of Pallav & Aiswarya across West Bengal and Rajasthan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

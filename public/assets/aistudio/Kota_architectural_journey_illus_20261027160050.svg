@@ -1,0 +1,642 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" width="1800" height="1000">
+  <defs>
+    <!-- Soft Watercolor Texture Filter -->
+    <filter id="watercolor" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="14" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Panel Clip Paths -->
+    <clipPath id="clipPanel1"><rect x="0" y="0" width="600" height="1000"/></clipPath>
+    <clipPath id="clipPanel2"><rect x="600" y="0" width="600" height="1000"/></clipPath>
+    <clipPath id="clipPanel3"><rect x="1200" y="0" width="600" height="1000"/></clipPath>
+
+    <!-- Panel 1 Gradients (Thar Desert) -->
+    <linearGradient id="p1Sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2cf8d"/>
+      <stop offset="55%" stop-color="#f8dfa6"/>
+      <stop offset="100%" stop-color="#fdecbe"/>
+    </linearGradient>
+    <radialGradient id="p1Sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffef2"/>
+      <stop offset="70%" stop-color="#fff5cc"/>
+      <stop offset="100%" stop-color="#fce29a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="p1DuneLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0c57b"/>
+      <stop offset="100%" stop-color="#daa050"/>
+    </linearGradient>
+    <linearGradient id="p1DuneMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3ab5c"/>
+      <stop offset="100%" stop-color="#c68336"/>
+    </linearGradient>
+    <linearGradient id="p1DuneShadow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c9883b"/>
+      <stop offset="100%" stop-color="#a56522"/>
+    </linearGradient>
+    <linearGradient id="p1Stone" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e7ba75"/>
+      <stop offset="50%" stop-color="#f3cf92"/>
+      <stop offset="100%" stop-color="#c68a42"/>
+    </linearGradient>
+
+    <!-- Panel 2 Gradients (Kota Garh Hathi Pol) -->
+    <linearGradient id="p2Sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcf4dc"/>
+      <stop offset="100%" stop-color="#f7e3b4"/>
+    </linearGradient>
+    <linearGradient id="p2Wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ecc68a"/>
+      <stop offset="50%" stop-color="#e2b472"/>
+      <stop offset="100%" stop-color="#cf9b56"/>
+    </linearGradient>
+    <linearGradient id="p2Floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eccb94"/>
+      <stop offset="50%" stop-color="#f5dbb0"/>
+      <stop offset="100%" stop-color="#d8a868"/>
+    </linearGradient>
+    <linearGradient id="p2Brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae084"/>
+      <stop offset="50%" stop-color="#df9e32"/>
+      <stop offset="100%" stop-color="#9e6214"/>
+    </linearGradient>
+
+    <!-- Panel 3 Gradients (Jagmandir Palace at Dusk) -->
+    <linearGradient id="p3Sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7588a1"/>
+      <stop offset="32%" stop-color="#b4958e"/>
+      <stop offset="62%" stop-color="#eaac74"/>
+      <stop offset="88%" stop-color="#fad58c"/>
+      <stop offset="100%" stop-color="#fdecb2"/>
+    </linearGradient>
+    <linearGradient id="p3Palace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c96e4b"/>
+      <stop offset="55%" stop-color="#b25238"/>
+      <stop offset="100%" stop-color="#873624"/>
+    </linearGradient>
+    <linearGradient id="p3WindowGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff9be"/>
+      <stop offset="50%" stop-color="#ffd86b"/>
+      <stop offset="100%" stop-color="#e89432"/>
+    </linearGradient>
+    <linearGradient id="p3Water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a8196"/>
+      <stop offset="45%" stop-color="#4d687e"/>
+      <stop offset="100%" stop-color="#354d62"/>
+    </linearGradient>
+  </defs>
+
+  <!-- =======================================================================
+       PANEL 1 (LEFT: 0 to 600): THAR DESERT DUNES, CHHATRI, CAMELS & CARRIAGE
+       ======================================================================= -->
+  <g clip-path="url(#clipPanel1)" filter="url(#watercolor)">
+    <!-- Sky -->
+    <rect x="0" y="0" width="600" height="1000" fill="url(#p1Sky)"/>
+
+    <!-- Soft Watercolor Clouds -->
+    <path d="M-10,75 Q45,55 85,82 Q130,68 165,98 Q200,90 220,122 L-10,128 Z" fill="#e5b368" opacity="0.45"/>
+    <path d="M355,165 Q410,145 460,152 Q505,120 555,135 Q585,118 610,140 L610,192 L355,185 Z" fill="#e5b368" opacity="0.45"/>
+    <path d="M445,250 Q505,235 550,248 Q580,235 610,250 L610,275 L445,270 Z" fill="#e5b368" opacity="0.38"/>
+
+    <!-- Glowing Desert Sun -->
+    <circle cx="412" cy="360" r="82" fill="url(#p1Sun)"/>
+    <circle cx="412" cy="360" r="62" fill="#fffdf0"/>
+
+    <!-- Distant & Midground Sand Dunes -->
+    <path d="M260,395 Q365,365 445,388 Q525,355 575,342 L600,350 L600,520 L260,520 Z" fill="url(#p1DuneLight)" stroke="#5c361a" stroke-width="1.5"/>
+    <path d="M465,382 Q535,352 575,342 L600,350 L600,455 Q525,430 465,382 Z" fill="url(#p1DuneShadow)" opacity="0.7"/>
+    <path d="M0,415 Q120,445 275,405 Q395,382 495,435 L600,455 L600,620 L0,620 Z" fill="url(#p1DuneMid)" stroke="#5c361a" stroke-width="1.5"/>
+    <path d="M185,485 Q310,432 455,465 Q540,485 600,470 L600,680 L0,680 L0,520 Z" fill="url(#p1DuneLight)" stroke="#5c361a" stroke-width="1.5"/>
+    <path d="M0,555 Q195,515 365,565 Q495,605 600,585 L600,1000 L0,1000 Z" fill="url(#p1DuneMid)" stroke="#5c361a" stroke-width="1.6"/>
+    <!-- Foreground Dune & Path Shading -->
+    <path d="M0,695 Q220,665 440,735 L600,775 L600,1000 L0,1000 Z" fill="#df9f4c"/>
+    <path d="M0,840 Q180,825 360,885 L600,940 L600,1000 L0,1000 Z" fill="#c78132" opacity="0.65"/>
+
+    <!-- Carved Sandstone Chhatri Pavilion (Left Midground) -->
+    <g stroke="#3e2412" stroke-width="1.8" stroke-linejoin="round">
+      <!-- Stepped Masonry Base Plinth -->
+      <rect x="18" y="532" width="284" height="24" fill="#c6863e"/>
+      <rect x="28" y="514" width="264" height="18" fill="#d99b52"/>
+      <rect x="38" y="502" width="244" height="12" fill="#eab56e"/>
+      <!-- Back Pillars (Darker Shade) -->
+      <rect x="74" y="340" width="14" height="162" fill="#a86b2d"/>
+      <rect x="138" y="340" width="14" height="162" fill="#a86b2d"/>
+      <rect x="218" y="340" width="14" height="162" fill="#a86b2d"/>
+      <!-- Front Carved Pillars -->
+      <g fill="url(#p1Stone)">
+        <!-- Pillar 1 -->
+        <rect x="48" y="335" width="18" height="167"/>
+        <path d="M44,492 L70,492 L66,502 L48,502 Z" fill="#c6863e"/>
+        <path d="M44,335 L70,335 L66,346 L48,346 Z" fill="#c6863e"/>
+        <!-- Pillar 2 -->
+        <rect x="102" y="335" width="20" height="167"/>
+        <path d="M98,492 L126,492 L122,502 L102,502 Z" fill="#c6863e"/>
+        <!-- Pillar 3 -->
+        <rect x="196" y="335" width="20" height="167"/>
+        <path d="M192,492 L220,492 L216,502 L196,502 Z" fill="#c6863e"/>
+        <!-- Pillar 4 -->
+        <rect x="252" y="335" width="18" height="167"/>
+        <path d="M248,492 L274,492 L270,502 L252,502 Z" fill="#c6863e"/>
+      </g>
+      <!-- Scalloped Cusped Arches -->
+      <path d="M48,335 L270,335 L270,395 Q260,362 235,362 Q215,362 206,395 Q185,352 159,348 Q133,352 112,395 Q102,362 84,362 Q62,362 48,395 Z" fill="url(#p1Stone)"/>
+      <!-- Inner Arch Shadow -->
+      <path d="M112,395 Q133,356 159,352 Q185,356 206,395 L202,395 Q182,364 159,360 Q136,364 116,395 Z" fill="#8f5520"/>
+      <!-- Overhanging Eave (Chhajja) -->
+      <polygon points="10,322 308,322 282,336 36,336" fill="#c48138"/>
+      <polygon points="22,312 296,312 308,322 10,322" fill="#e5af68"/>
+      <!-- Octagonal Drum & Frieze -->
+      <rect x="42" y="286" width="234" height="26" fill="url(#p1Stone)"/>
+      <rect x="50" y="268" width="218" height="18" fill="#d4954c"/>
+      <!-- Lotus Petals & Fluted Dome -->
+      <path d="M52,268 Q52,162 159,150 Q266,162 266,268 Z" fill="url(#p1Stone)"/>
+      <!-- Dome Ribs -->
+      <path d="M159,150 L159,268 M159,150 Q125,185 118,268 M159,150 Q92,190 82,268 M159,150 Q193,185 200,268 M159,150 Q226,190 236,268" fill="none" stroke="#5c361a" stroke-width="1.3"/>
+      <!-- Kalash Finial -->
+      <path d="M152,150 L166,150 L163,136 L155,136 Z" fill="#b8742a"/>
+      <circle cx="159" cy="128" r="7" fill="#d89444"/>
+      <circle cx="159" cy="115" r="4.5" fill="#d89444"/>
+      <line x1="159" y1="95" x2="159" y2="110" stroke="#3e2412" stroke-width="2.2"/>
+    </g>
+
+    <!-- Partial Camel on Far Left Edge -->
+    <g fill="#c9853b" stroke="#3e2412" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M-5,555 Q18,548 25,585 Q38,572 42,554 Q48,545 58,548 Q64,552 58,559 Q48,562 44,585 Q40,612 22,620 L18,698 L12,698 L13,628 L3,628 L0,702 L-6,702 Z"/>
+    </g>
+
+    <!-- Two Camels on Midground Dunes -->
+    <!-- Camel 1 (Left-Center) -->
+    <g transform="translate(352, 495)" fill="#b87632" stroke="#3e2412" stroke-width="1.6" stroke-linejoin="round">
+      <ellipse cx="38" cy="78" rx="34" ry="5" fill="#9c5e21" stroke="none" opacity="0.55"/>
+      <path d="M8,42 Q18,8 36,10 Q50,12 56,34 Q68,36 74,20 Q78,8 84,8 Q92,8 93,13 Q88,17 83,16 Q79,28 72,42 Q64,52 52,50 L50,76 L46,76 L45,50 L36,49 L32,75 L28,75 L30,48 L18,48 L14,76 L10,76 L13,46 L5,56"/>
+    </g>
+    <!-- Camel 2 (Right-Center) -->
+    <g transform="translate(468, 516)" fill="#a86828" stroke="#3e2412" stroke-width="1.7" stroke-linejoin="round">
+      <ellipse cx="48" cy="96" rx="44" ry="7" fill="#8f5319" stroke="none" opacity="0.55"/>
+      <path d="M10,52 Q24,6 46,8 Q64,10 72,40 Q86,42 94,22 Q100,8 108,8 Q118,8 120,14 Q113,19 107,18 Q102,34 92,52 Q82,64 66,62 L64,95 L59,95 L58,62 L46,60 L40,93 L35,93 L38,59 L22,59 L16,95 L11,95 L15,56 L4,68"/>
+    </g>
+
+    <!-- Cast Shadow Under Carriage & Horse -->
+    <path d="M25,845 Q160,820 310,875 Q410,920 530,905 L560,965 Q360,985 180,905 Z" fill="#94561e" opacity="0.48"/>
+
+    <!-- Ornate Royal Horse-Drawn Wedding Carriage (Ghoda Gadi) -->
+    <g stroke="#361f10" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round">
+      <!-- Far-Side Wheels (Behind Body) -->
+      <g transform="translate(158, 782)" opacity="0.85">
+        <circle cx="0" cy="0" r="46" fill="none" stroke="#4a2b16" stroke-width="5"/>
+        <circle cx="0" cy="0" r="8" fill="#6b3f20"/>
+        <path d="M-46,0 L46,0 M0,-46 L0,46 M-32,-32 L32,32 M-32,32 L32,-32" stroke="#4a2b16" stroke-width="1.6"/>
+      </g>
+      <g transform="translate(352, 800)" opacity="0.85">
+        <circle cx="0" cy="0" r="42" fill="none" stroke="#4a2b16" stroke-width="5"/>
+        <circle cx="0" cy="0" r="7" fill="#6b3f20"/>
+        <path d="M-42,0 L42,0 M0,-42 L0,42 M-30,-30 L30,30 M-30,30 L30,-30" stroke="#4a2b16" stroke-width="1.6"/>
+      </g>
+
+      <!-- Undercarriage & Leaf Springs -->
+      <path d="M78,785 Q118,805 162,785 M205,815 Q245,832 285,815" fill="none" stroke="#361f10" stroke-width="3"/>
+      <line x1="78" y1="785" x2="245" y2="812" stroke="#361f10" stroke-width="3.5"/>
+
+      <!-- Carriage Body & Crimson Velvet Seats -->
+      <path d="M84,640 L185,640 L195,695 L92,695 Z" fill="#9e3b33"/>
+      <path d="M188,655 L295,655 L295,695 L188,695 Z" fill="#b2483e"/>
+      <!-- Curved Wood & Brass Carriage Hull -->
+      <path d="M72,665 Q85,755 145,762 L325,762 L338,688 L225,688 Q195,725 165,685 L155,665 Z" fill="#825634"/>
+      <path d="M82,675 Q95,742 148,748 L220,748 L215,698 L152,698 Z" fill="#c88d48"/>
+      <rect x="230" y="695" width="95" height="46" fill="#6b4428"/>
+      <!-- Brass Carriage Lamp -->
+      <rect x="222" y="642" width="14" height="22" rx="3" fill="#f7c844"/>
+
+      <!-- Canopy Support Pillars -->
+      <line x1="86" y1="562" x2="92" y2="672" stroke="#4a2b16" stroke-width="3.5"/>
+      <line x1="196" y1="555" x2="198" y2="692" stroke="#4a2b16" stroke-width="3.5"/>
+      <line x1="298" y1="562" x2="294" y2="688" stroke="#4a2b16" stroke-width="3.5"/>
+      <line x1="145" y1="565" x2="148" y2="665" stroke="#4a2b16" stroke-width="2.5"/>
+
+      <!-- Canopy Roof & Festive Marigold Garlands -->
+      <path d="M76,565 Q138,522 202,542 Q256,522 308,562 L296,576 Q245,555 198,568 Q140,552 84,576 Z" fill="#e5a646"/>
+      <!-- Lush Golden Marigold Swags -->
+      <path d="M84,568 Q112,612 142,568 Q170,615 198,566 Q225,612 252,568 Q276,608 298,568" fill="none" stroke="#df8718" stroke-width="11"/>
+      <path d="M84,568 Q112,612 142,568 Q170,615 198,566 Q225,612 252,568 Q276,608 298,568" fill="none" stroke="#f7c331" stroke-width="6" stroke-dasharray="4 6"/>
+      <!-- Hanging Marigold Pillar Garlands -->
+      <path d="M88,572 Q105,650 92,715 M198,568 Q212,650 198,722 M296,572 Q284,635 294,688" fill="none" stroke="#e8941e" stroke-width="8" stroke-dasharray="5 4"/>
+
+      <!-- Near-Side Spoked Wheels -->
+      <!-- Rear Wheel -->
+      <g transform="translate(78, 785)">
+        <circle cx="0" cy="0" r="62" fill="none" stroke="#361f10" stroke-width="7"/>
+        <circle cx="0" cy="0" r="56" fill="none" stroke="#c68942" stroke-width="3"/>
+        <circle cx="0" cy="0" r="11" fill="#8f5522"/>
+        <path d="M-56,0 L56,0 M0,-56 L0,56 M-40,-40 L40,40 M-40,40 L40,-40 M-22,-51 L22,51 M-51,-22 L51,22" stroke="#361f10" stroke-width="2"/>
+      </g>
+      <!-- Front Wheel -->
+      <g transform="translate(245, 812)">
+        <circle cx="0" cy="0" r="54" fill="none" stroke="#361f10" stroke-width="6.5"/>
+        <circle cx="0" cy="0" r="48" fill="none" stroke="#c68942" stroke-width="2.8"/>
+        <circle cx="0" cy="0" r="10" fill="#8f5522"/>
+        <path d="M-48,0 L48,0 M0,-48 L0,48 M-34,-34 L34,34 M-34,34 L34,-34 M-18,-44 L18,44 M-44,-18 L44,18" stroke="#361f10" stroke-width="1.8"/>
+      </g>
+
+      <!-- Carriage Shafts to Horse -->
+      <path d="M312,756 L496,685 M335,762 L510,702" fill="none" stroke="#4a2b16" stroke-width="4.5"/>
+
+      <!-- Brown Royal Carriage Horse -->
+      <g fill="#7c3f1c">
+        <!-- Tail -->
+        <path d="M342,692 Q325,735 332,788 Q344,775 348,725 Z" fill="#2b160a"/>
+        <!-- Body, Neck & Head -->
+        <path d="M345,688 Q352,658 395,665 L455,668 Q482,638 505,612 L512,598 L518,610 L526,598 L528,615 Q545,638 558,668 Q562,680 550,685 Q536,682 522,665 Q505,685 492,718 Q478,745 452,742 L385,738 Q358,735 345,688 Z"/>
+        <!-- Back Left Leg -->
+        <path d="M352,718 L345,785 L340,848 L348,852 L356,788 L368,728 Z" fill="#633014"/>
+        <!-- Back Right Leg -->
+        <path d="M372,725 L382,792 L378,865 L388,868 L396,792 L392,728 Z"/>
+        <!-- Front Left Leg -->
+        <path d="M448,735 L438,808 L434,878 L445,882 L452,810 L465,738 Z" fill="#633014"/>
+        <!-- Front Right Leg -->
+        <path d="M472,732 L482,808 L478,892 L490,895 L496,808 L492,722 Z"/>
+        <!-- Dark Mane -->
+        <path d="M505,612 Q475,632 452,668 Q468,655 508,620 Z" fill="#2b160a"/>
+        <!-- Bridle, Collar & Harness Straps -->
+        <path d="M452,665 Q468,708 492,722" fill="none" stroke="#2b160a" stroke-width="5"/>
+        <path d="M456,665 Q472,708 495,720" fill="none" stroke="#e5a646" stroke-width="2"/>
+        <path d="M518,618 L548,668 M512,632 L542,642 M542,668 L465,692 M352,688 L468,695" fill="none" stroke="#2b160a" stroke-width="2.2"/>
+        <!-- Blaze on Forehead & Eye -->
+        <path d="M524,618 L544,658 L538,662 L520,622 Z" fill="#f5dfb8" stroke="none"/>
+        <circle cx="526" cy="634" r="2.5" fill="#1a0d06"/>
+      </g>
+    </g>
+
+    <!-- Desert Grass Tuft (Bottom Left) -->
+    <path d="M62,922 L45,892 M66,922 L58,885 M70,922 L72,886 M75,922 L86,892 M79,922 L96,902" stroke="#4f5d38" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- =======================================================================
+       PANEL 2 (MIDDLE: 600 to 1200): KOTA GARH HATHI POL GATE, DRUMS & UMBRELLAS
+       ======================================================================= -->
+  <g clip-path="url(#clipPanel2)" filter="url(#watercolor)">
+    <!-- Sky & Background -->
+    <rect x="600" y="0" width="600" height="1000" fill="url(#p2Sky)"/>
+
+    <!-- Perspective Stone Courtyard Floor -->
+    <polygon points="600,680 1200,680 1200,1000 600,1000" fill="url(#p2Floor)"/>
+    <!-- Perspective Paving Lines -->
+    <g stroke="#b88446" stroke-width="1.2" opacity="0.65">
+      <line x1="900" y1="680" x2="640" y2="1000"/>
+      <line x1="900" y1="680" x2="770" y2="1000"/>
+      <line x1="900" y1="680" x2="900" y2="1000"/>
+      <line x1="900" y1="680" x2="1030" y2="1000"/>
+      <line x1="900" y1="680" x2="1160" y2="1000"/>
+      <line x1="600" y1="735" x2="1200" y2="735"/>
+      <line x1="600" y1="795" x2="1200" y2="795"/>
+      <line x1="600" y1="868" x2="1200" y2="868"/>
+      <line x1="600" y1="950" x2="1200" y2="950"/>
+    </g>
+
+    <!-- Kota Garh Hathi Pol Symmetrical Architecture -->
+    <g stroke="#3b2212" stroke-width="1.7" stroke-linejoin="round">
+      <!-- Rooftop Domed Pavilions (Chhatris) -->
+      <!-- Left Dome Pavilion -->
+      <path d="M675,165 Q675,112 708,105 Q741,112 741,165 Z" fill="#e5ba78"/>
+      <line x1="708" y1="85" x2="708" y2="105" stroke-width="2"/>
+      <rect x="668" y="165" width="80" height="10" fill="#c9924e"/>
+      <rect x="674" y="175" width="68" height="88" fill="#e8c285"/>
+      <path d="M686,255 L686,208 Q708,190 730,208 L730,255 Z" fill="#fdf2d8"/>
+
+      <!-- Right Dome Pavilion -->
+      <path d="M1059,165 Q1059,112 1092,105 Q1125,112 1125,165 Z" fill="#e5ba78"/>
+      <line x1="1092" y1="85" x2="1092" y2="105" stroke-width="2"/>
+      <rect x="1052" y="165" width="80" height="10" fill="#c9924e"/>
+      <rect x="1058" y="175" width="68" height="88" fill="#e8c285"/>
+      <path d="M1070,255 L1070,208 Q1092,190 1114,208 L1114,255 Z" fill="#fdf2d8"/>
+
+      <!-- Central Grand Domed Pavilion -->
+      <path d="M828,158 Q828,88 900,82 Q972,88 972,158 Z" fill="#e8bd7a"/>
+      <path d="M900,82 L900,158 M900,82 Q865,110 858,158 M900,82 Q935,110 942,158" fill="none" stroke="#5c361a" stroke-width="1.2"/>
+      <line x1="900" y1="58" x2="900" y2="82" stroke-width="2.2"/>
+      <line x1="876" y1="68" x2="876" y2="85" stroke-width="1.6"/>
+      <line x1="924" y1="68" x2="924" y2="85" stroke-width="1.6"/>
+      <rect x="818" y="158" width="164" height="12" fill="#c9924e"/>
+      <rect x="826" y="170" width="148" height="92" fill="#edd09c"/>
+      <!-- Triple Arched Openings in Central Pavilion -->
+      <path d="M842,248 L842,202 Q858,185 874,202 L874,248 Z" fill="#fdf2d8"/>
+      <path d="M884,248 L884,198 Q900,182 916,198 L916,248 Z" fill="#fdf2d8"/>
+      <path d="M926,248 L926,202 Q942,185 958,202 L958,248 Z" fill="#fdf2d8"/>
+
+      <!-- Upper Parapet Wall & Overhanging Cornice (Chhajja) -->
+      <rect x="640" y="262" width="520" height="32" fill="#e2b472"/>
+      <polygon points="680,294 1120,294 1090,328 710,328" fill="#b57d3c"/>
+
+      <!-- Main Hathi Pol Gateway Facade -->
+      <rect x="718" y="328" width="364" height="372" fill="url(#p2Wall)"/>
+
+      <!-- Outer & Inner Central Pointed Archway -->
+      <rect x="808" y="346" width="184" height="354" fill="#d9a662"/>
+      <!-- Decorative Floral Spandrel Arch -->
+      <path d="M816,700 L816,445 Q816,385 900,368 Q984,385 984,445 L984,700 Z" fill="#6e4b32"/>
+      <!-- Inner Recessed Arch Opening -->
+      <path d="M832,700 L832,482 Q832,438 900,425 Q968,438 968,482 L968,700 Z" fill="#a87644"/>
+      <path d="M846,700 L846,498 Q846,458 900,445 Q954,458 954,498 L954,700 Z" fill="#fcf0d5"/>
+
+      <!-- Distant Inner Courtyard Gate Seen Through Archway -->
+      <g opacity="0.72" stroke="#7a542e" stroke-width="1.2">
+        <rect x="854" y="535" width="92" height="125" fill="#edd29f"/>
+        <path d="M882,660 L882,592 Q900,575 918,592 L918,660 Z" fill="#d4aa6a"/>
+        <rect x="846" y="660" width="108" height="40" fill="#dfc08e"/>
+      </g>
+
+      <!-- Flanking Painted Fresco Alcove Panels (3 Left, 3 Right) -->
+      <!-- Left Fresco Column -->
+      <g fill="#e6cfa8">
+        <rect x="740" y="348" width="54" height="72"/>
+        <path d="M744,416 L744,372 Q767,352 790,372 L790,416 Z" fill="#c5cab8"/>
+        <circle cx="767" cy="392" r="10" fill="#c97b52" stroke="none"/>
+
+        <rect x="740" y="430" width="54" height="74"/>
+        <path d="M744,500 L744,454 Q767,434 790,454 L790,500 Z" fill="#d8c39e"/>
+        <path d="M755,488 Q767,462 779,488 Z" fill="#8c583a" stroke="none"/>
+
+        <rect x="740" y="514" width="54" height="80"/>
+        <path d="M744,590 L744,540 Q767,520 790,540 L790,590 Z" fill="#c5cab8"/>
+        <circle cx="767" cy="564" r="11" fill="#d48c46" stroke="none"/>
+      </g>
+      <!-- Right Fresco Column -->
+      <g fill="#e6cfa8">
+        <rect x="1006" y="348" width="54" height="72"/>
+        <path d="M1010,416 L1010,372 Q1033,352 1056,372 L1056,416 Z" fill="#c5cab8"/>
+        <circle cx="1033" cy="392" r="10" fill="#c97b52" stroke="none"/>
+
+        <rect x="1006" y="430" width="54" height="74"/>
+        <path d="M1010,500 L1010,454 Q1033,434 1056,454 L1056,500 Z" fill="#d8c39e"/>
+        <path d="M1021,488 Q1033,462 1045,488 Z" fill="#8c583a" stroke="none"/>
+
+        <rect x="1006" y="514" width="54" height="80"/>
+        <path d="M1010,590 L1010,540 Q1033,520 1056,540 L1056,590 Z" fill="#c5cab8"/>
+        <circle cx="1033" cy="564" r="11" fill="#d48c46" stroke="none"/>
+      </g>
+
+      <!-- Left & Right Perspective Palace Side Wings -->
+      <!-- Left Wing -->
+      <polygon points="600,210 725,358 725,392 600,262" fill="#b87e42"/>
+      <polygon points="600,262 718,385 718,545 600,475" fill="#d9a664"/>
+      <polygon points="600,445 718,522 718,548 600,492" fill="#9c6430"/>
+      <!-- Right Wing -->
+      <polygon points="1200,205 1075,358 1075,392 1200,258" fill="#8c4c28"/>
+      <polygon points="1200,258 1082,385 1082,545 1200,475" fill="#a86438"/>
+      <polygon points="1200,445 1082,522 1082,548 1200,492" fill="#783e1e"/>
+    </g>
+
+    <!-- Symmetrical Ceremonial Parasols (Chhatri Umbrellas), Brass Trumpets & Nagada Drums -->
+    <g stroke="#361f10" stroke-width="1.8" stroke-linejoin="round">
+      <!-- LEFT SIDE PARASOLS (Back to Front) -->
+      <path d="M785,625 Q818,588 848,625 Z" fill="#c85a38"/>
+      <path d="M745,612 Q788,568 828,612 Z" fill="#d89b38"/>
+      <path d="M685,602 Q738,542 792,602 Z" fill="#6b8e78"/>
+      <!-- Foreground Left Embroidered Parasol -->
+      <line x1="642" y1="518" x2="642" y2="735" stroke="#4a2b16" stroke-width="4"/>
+      <path d="M585,595 Q642,508 715,592 Z" fill="#4f7584"/>
+      <path d="M592,582 Q642,535 708,580 L715,592 L585,595 Z" fill="#c44b38"/>
+      <path d="M585,595 L715,592 L712,602 L588,605 Z" fill="#f0b842" stroke-dasharray="6 4"/>
+
+      <!-- RIGHT SIDE PARASOLS (Back to Front) -->
+      <path d="M1015,625 Q982,588 952,625 Z" fill="#c85a38"/>
+      <path d="M1055,612 Q1012,568 972,612 Z" fill="#d89b38"/>
+      <path d="M1115,602 Q1062,542 1008,602 Z" fill="#6b8e78"/>
+      <!-- Foreground Right Embroidered Parasol -->
+      <line x1="1158" y1="518" x2="1158" y2="735" stroke="#4a2b16" stroke-width="4"/>
+      <path d="M1215,595 Q1158,508 1085,592 Z" fill="#b84a36"/>
+      <path d="M1208,582 Q1158,535 1092,580 L1085,592 L1215,595 Z" fill="#e69d38"/>
+      <path d="M1215,595 L1085,592 L1088,602 L1212,605 Z" fill="#f0b842" stroke-dasharray="6 4"/>
+
+      <!-- LONG GOLDEN BRASS TRUMPETS (Tutari / Ransingha) -->
+      <!-- Left Trumpets -->
+      <path d="M685,725 Q755,692 805,652 L818,676 Q758,702 685,732 Z" fill="url(#p2Brass)"/>
+      <ellipse cx="812" cy="664" rx="8" ry="15" transform="rotate(-25 812 664)" fill="#b87618"/>
+      <path d="M602,732 Q682,685 738,625 L756,662 Q688,698 602,742 Z" fill="url(#p2Brass)"/>
+      <ellipse cx="747" cy="644" rx="11" ry="21" transform="rotate(-25 747 644)" fill="#b87618"/>
+
+      <!-- Right Trumpets -->
+      <path d="M1115,725 Q1045,692 995,652 L982,676 Q1042,702 1115,732 Z" fill="url(#p2Brass)"/>
+      <ellipse cx="988" cy="664" rx="8" ry="15" transform="rotate(25 988 664)" fill="#b87618"/>
+      <path d="M1198,732 Q1118,685 1062,625 L1044,662 Q1112,698 1198,742 Z" fill="url(#p2Brass)"/>
+      <ellipse cx="1053" cy="644" rx="11" ry="21" transform="rotate(25 1053 644)" fill="#b87618"/>
+
+      <!-- CEREMONIAL ROYAL KETTLE DRUMS (Nagada) -->
+      <!-- Left Drum 3 (Back) -->
+      <g transform="translate(808, 725)">
+        <path d="M-26,18 Q-38,-2 -12,-28 L18,12 Q0,32 -26,18 Z" fill="#b84a36"/>
+        <ellipse cx="4" cy="-6" rx="16" ry="28" transform="rotate(-24 4 -6)" fill="#fbf0d6"/>
+        <ellipse cx="5" cy="-6" rx="5" ry="9" transform="rotate(-24 5 -6)" fill="#5c422c"/>
+      </g>
+      <!-- Left Drum 2 (Mid) -->
+      <g transform="translate(752, 756)">
+        <path d="M-36,26 Q-52,-4 -18,-38 L24,18 Q0,44 -36,26 Z" fill="#b84a36"/>
+        <ellipse cx="5" cy="-8" rx="22" ry="38" transform="rotate(-24 5 -8)" fill="#fbf0d6"/>
+        <ellipse cx="6" cy="-8" rx="7" ry="12" transform="rotate(-24 6 -8)" fill="#5c422c"/>
+      </g>
+      <!-- Left Drum 1 (Foreground Large) -->
+      <g transform="translate(665, 808)">
+        <!-- Wooden Stand -->
+        <path d="M-38,68 L22,68 L22,95 L8,95 L8,78 L-24,78 L-24,95 L-38,95 Z" fill="#82522e"/>
+        <!-- Patterned Drum Kettle -->
+        <path d="M-65,38 Q-88,-12 -28,-76 L42,42 Q-5,88 -65,38 Z" fill="#a83c32"/>
+        <path d="M-58,25 L25,52 M-64,0 L35,28 M-52,-32 L28,-5 M-35,-58 L15,-35" stroke="#f0b842" stroke-width="2.5"/>
+        <!-- Tilted Drumhead -->
+        <ellipse cx="10" cy="-14" rx="42" ry="74" transform="rotate(-22 10 -14)" fill="#fcf2da" stroke="#361f10" stroke-width="2.5"/>
+        <ellipse cx="10" cy="-14" rx="36" ry="66" transform="rotate(-22 10 -14)" fill="none" stroke="#c99b5e" stroke-width="1.2"/>
+        <ellipse cx="12" cy="-14" rx="11" ry="20" transform="rotate(-22 12 -14)" fill="#543c28"/>
+      </g>
+
+      <!-- Right Drum 3 (Back) -->
+      <g transform="translate(992, 725)">
+        <path d="M26,18 Q38,-2 12,-28 L-18,12 Q0,32 26,18 Z" fill="#b84a36"/>
+        <ellipse cx="-4" cy="-6" rx="16" ry="28" transform="rotate(24 -4 -6)" fill="#fbf0d6"/>
+        <ellipse cx="-5" cy="-6" rx="5" ry="9" transform="rotate(24 -5 -6)" fill="#5c422c"/>
+      </g>
+      <!-- Right Drum 2 (Mid) -->
+      <g transform="translate(1048, 756)">
+        <path d="M36,26 Q52,-4 18,-38 L-24,18 Q0,44 36,26 Z" fill="#b84a36"/>
+        <ellipse cx="-5" cy="-8" rx="22" ry="38" transform="rotate(24 -5 -8)" fill="#fbf0d6"/>
+        <ellipse cx="-6" cy="-8" rx="7" ry="12" transform="rotate(24 -6 -8)" fill="#5c422c"/>
+      </g>
+      <!-- Right Drum 1 (Foreground Large) -->
+      <g transform="translate(1135, 808)">
+        <!-- Wooden Stand -->
+        <path d="M38,68 L-22,68 L-22,95 L-8,95 L-8,78 L24,78 L24,95 L38,95 Z" fill="#82522e"/>
+        <!-- Patterned Drum Kettle -->
+        <path d="M65,38 Q88,-12 28,-76 L-42,42 Q5,88 65,38 Z" fill="#a83c32"/>
+        <path d="M58,25 L-25,52 M64,0 L-35,28 M52,-32 L-28,-5 M35,-58 L-15,-35" stroke="#f0b842" stroke-width="2.5"/>
+        <!-- Tilted Drumhead -->
+        <ellipse cx="-10" cy="-14" rx="42" ry="74" transform="rotate(22 -10 -14)" fill="#fcf2da" stroke="#361f10" stroke-width="2.5"/>
+        <ellipse cx="-10" cy="-14" rx="36" ry="66" transform="rotate(22 -10 -14)" fill="none" stroke="#c99b5e" stroke-width="1.2"/>
+        <ellipse cx="-12" cy="-14" rx="11" ry="20" transform="rotate(22 -12 -14)" fill="#543c28"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- =======================================================================
+       PANEL 3 (RIGHT: 1200 to 1800): JAGMANDIR PALACE ON KISHORE SAGAR LAKE
+       ======================================================================= -->
+  <g clip-path="url(#clipPanel3)" filter="url(#watercolor)">
+    <!-- Twilight Sky -->
+    <rect x="1200" y="0" width="600" height="585" fill="url(#p3Sky)"/>
+
+    <!-- Distant Lake Horizon Hills & Trees -->
+    <path d="M1200,465 Q1245,455 1295,485 L1295,570 L1200,570 Z" fill="#7c757d" opacity="0.65"/>
+    <path d="M1200,525 Q1235,515 1255,532 Q1275,518 1295,535 L1295,568 L1200,568 Z" fill="#46545e"/>
+
+    <!-- Kishore Sagar Lake Water -->
+    <rect x="1200" y="565" width="600" height="435" fill="url(#p3Water)"/>
+
+    <!-- Shimmering Palace & Golden Light Reflections in Lake Water -->
+    <g opacity="0.82">
+      <!-- Red Sandstone Reflected Silhouettes -->
+      <path d="M1290,645 L1800,665 L1800,885 L1685,935 L1565,865 L1465,875 L1375,925 L1290,845 Z" fill="#703d34" opacity="0.65"/>
+      <!-- Vertical Columns of Golden Reflected Window Light -->
+      <g fill="#fce382" filter="url(#glow)">
+        <rect x="1315" y="655" width="16" height="165" rx="6" opacity="0.65"/>
+        <rect x="1385" y="655" width="22" height="220" rx="8" opacity="0.8"/>
+        <rect x="1435" y="660" width="24" height="195" rx="8" opacity="0.75"/>
+        <rect x="1488" y="662" width="26" height="210" rx="8" opacity="0.85"/>
+        <rect x="1532" y="665" width="24" height="185" rx="8" opacity="0.75"/>
+        <rect x="1578" y="665" width="26" height="205" rx="8" opacity="0.85"/>
+        <rect x="1632" y="665" width="22" height="175" rx="8" opacity="0.7"/>
+        <rect x="1715" y="672" width="32" height="225" rx="10" opacity="0.85"/>
+      </g>
+      <!-- Horizontal Water Ripple Bands (Dark Slate & Bright Gold) -->
+      <g stroke-linecap="round">
+        <path d="M1215,675 L1340,675 M1365,688 L1520,688 M1550,682 L1760,682 M1245,712 L1440,712 M1475,708 L1695,708 M1295,738 L1565,738 M1595,742 L1785,742 M1225,768 L1465,768 M1495,772 L1745,772 M1275,802 L1525,802 M1565,808 L1790,808 M1235,842 L1485,842 M1525,848 L1765,848 M1295,882 L1625,882 M1220,922 L1545,922 M1585,928 L1785,928 M1265,962 L1685,962" stroke="#364e63" stroke-width="4.5"/>
+        <path d="M1375,678 L1495,678 M1530,695 L1645,695 M1390,722 L1595,722 M1445,752 L1635,752 M1380,785 L1585,785 M1465,818 L1620,818 M1395,855 L1545,855 M1705,718 L1765,718 M1712,762 L1760,762 M1718,812 L1755,812" stroke="#fff4a8" stroke-width="3.2"/>
+      </g>
+    </g>
+
+    <!-- JAGMANDIR WATER PALACE ARCHITECTURE -->
+    <g stroke="#3d1d14" stroke-width="1.6" stroke-linejoin="round">
+      <!-- Leftmost Corner Chhatri Tower -->
+      <path d="M1292,418 Q1292,385 1322,380 Q1352,385 1352,418 Z" fill="#c86848"/>
+      <line x1="1322" y1="368" x2="1322" y2="380" stroke-width="1.8"/>
+      <rect x="1285" y="418" width="74" height="8" fill="#8f3b26"/>
+      <rect x="1292" y="426" width="60" height="65" fill="url(#p3Palace)"/>
+      <rect x="1302" y="438" width="14" height="36" rx="6" fill="url(#p3WindowGlow)"/>
+      <rect x="1326" y="438" width="14" height="36" rx="6" fill="url(#p3WindowGlow)"/>
+
+      <!-- Second Taller Left Chhatri Tower -->
+      <path d="M1378,395 Q1378,348 1422,340 Q1466,348 1466,395 Z" fill="#c86848"/>
+      <line x1="1422" y1="322" x2="1422" y2="340" stroke-width="2"/>
+      <rect x="1368" y="395" width="108" height="10" fill="#8f3b26"/>
+      <rect x="1378" y="405" width="88" height="85" fill="url(#p3Palace)"/>
+      <rect x="1392" y="420" width="18" height="48" rx="8" fill="url(#p3WindowGlow)"/>
+      <rect x="1422" y="420" width="18" height="48" rx="8" fill="url(#p3WindowGlow)"/>
+
+      <!-- Central Ribbed Mughal Dome -->
+      <path d="M1556,408 Q1556,342 1615,332 Q1674,342 1674,408 Z" fill="#cf7250"/>
+      <path d="M1615,332 L1615,408 M1615,332 Q1585,360 1578,408 M1615,332 Q1645,360 1652,408" fill="none" stroke="#5a2618" stroke-width="1.2"/>
+      <line x1="1615" y1="312" x2="1615" y2="332" stroke-width="2.2"/>
+      <rect x="1548" y="408" width="134" height="78" fill="url(#p3Palace)"/>
+
+      <!-- Right Curved Bangaldar Vaulted Pavilion -->
+      <path d="M1682,395 Q1740,342 1798,395 Z" fill="#c86848"/>
+      <rect x="1678" y="395" width="120" height="98" fill="url(#p3Palace)"/>
+      <path d="M1696,468 L1696,426 Q1712,412 1728,426 L1728,468 Z" fill="url(#p3WindowGlow)"/>
+      <path d="M1738,468 L1738,426 Q1754,412 1770,426 L1770,468 Z" fill="url(#p3WindowGlow)"/>
+
+      <!-- Main Lower Palace Arcade & Glowing Arches -->
+      <rect x="1285" y="485" width="515" height="125" fill="url(#p3Palace)"/>
+      <!-- Glowing Golden Arched Windows Along Lower Colonnade -->
+      <g fill="url(#p3WindowGlow)">
+        <path d="M1302,598 L1302,542 Q1315,526 1328,542 L1328,598 Z"/>
+        <path d="M1340,598 L1340,542 Q1353,526 1366,542 L1366,598 Z"/>
+        <path d="M1384,598 L1384,536 Q1402,518 1420,536 L1420,598 Z"/>
+        <path d="M1434,598 L1434,536 Q1452,518 1470,536 L1470,598 Z"/>
+        <path d="M1484,598 L1484,536 Q1502,518 1520,536 L1520,598 Z"/>
+        <path d="M1534,598 L1534,536 Q1552,518 1570,536 L1570,598 Z"/>
+        <path d="M1584,598 L1584,536 Q1602,518 1620,536 L1620,598 Z"/>
+        <path d="M1634,598 L1634,536 Q1652,518 1670,536 L1670,598 Z"/>
+        <path d="M1702,612 L1702,535 Q1724,515 1746,535 L1746,612 Z"/>
+        <path d="M1758,612 L1758,542 Q1772,526 1786,542 L1786,612 Z"/>
+      </g>
+
+      <!-- Carved Red-Sandstone Island Bastion Wall & Ghat Steps -->
+      <polygon points="1245,592 1358,592 1378,602 1692,602 1692,665 1378,665 1358,645 1245,645" fill="#94412c"/>
+      <!-- Waterline Crenellations -->
+      <path d="M1245,592 L1692,592" stroke="#f7c868" stroke-width="2" stroke-dasharray="6 5"/>
+      <!-- Ghat Steps on Right -->
+      <polygon points="1692,612 1798,612 1798,672 1692,665" fill="#7c3422"/>
+      <line x1="1692" y1="626" x2="1798" y2="626" stroke="#4a1d12" stroke-width="1.5"/>
+      <line x1="1692" y1="640" x2="1798" y2="640" stroke="#4a1d12" stroke-width="1.5"/>
+      <line x1="1692" y1="654" x2="1798" y2="654" stroke="#4a1d12" stroke-width="1.5"/>
+    </g>
+
+    <!-- Palace Draped Fairy String Lights -->
+    <g fill="none" stroke="#f7d674" stroke-width="1.8" stroke-dasharray="3 6">
+      <path d="M1288,515 Q1330,535 1375,515 Q1425,538 1475,515 Q1525,538 1575,515 Q1625,538 1675,515 Q1735,538 1795,515"/>
+      <path d="M1372,402 Q1422,422 1472,402 Q1540,445 1675,408"/>
+    </g>
+
+    <!-- OVERHEAD FAIRY STRING LIGHTS & FOUR HANGING BRASS LANTERNS -->
+    <!-- Criss-Crossing Overhead Wires -->
+    <g fill="none" stroke="#2c221e" stroke-width="1.5">
+      <path d="M1200,82 Q1420,95 1645,0"/>
+      <path d="M1225,0 Q1465,125 1735,0"/>
+      <path d="M1485,0 Q1645,88 1800,68"/>
+      <line x1="1242" y1="0" x2="1242" y2="165"/>
+      <line x1="1322" y1="0" x2="1322" y2="112"/>
+      <line x1="1672" y1="0" x2="1672" y2="102"/>
+      <line x1="1762" y1="0" x2="1762" y2="136"/>
+    </g>
+    <!-- Glowing Overhead Fairy Bulbs -->
+    <g fill="#fff8b8" filter="url(#glow)">
+      <circle cx="1222" cy="84" r="4.5"/><circle cx="1265" cy="86" r="4.5"/><circle cx="1302" cy="42" r="4.5"/>
+      <circle cx="1348" cy="64" r="4.5"/><circle cx="1392" cy="80" r="4.5"/><circle cx="1438" cy="88" r="4.5"/>
+      <circle cx="1482" cy="90" r="4.5"/><circle cx="1528" cy="84" r="4.5"/><circle cx="1572" cy="70" r="4.5"/>
+      <circle cx="1618" cy="48" r="4.5"/><circle cx="1662" cy="64" r="4.5"/><circle cx="1708" cy="72" r="4.5"/>
+      <circle cx="1752" cy="74" r="4.5"/><circle cx="1788" cy="72" r="4.5"/>
+    </g>
+
+    <!-- Four Hanging Ornate Brass Lanterns -->
+    <g stroke="#361f10" stroke-width="1.6" stroke-linejoin="round">
+      <!-- Lantern 1 (Far Left Foreground, Largest) -->
+      <g transform="translate(1242, 165)">
+        <path d="M-18,32 Q0,4 18,32 Z" fill="#9e6424"/>
+        <rect x="-22" y="32" width="44" height="68" fill="url(#p3WindowGlow)"/>
+        <line x1="-10" y1="32" x2="-10" y2="100"/><line x1="10" y1="32" x2="10" y2="100"/>
+        <polygon points="-24,100 24,100 14,116 -14,116" fill="#9e6424"/>
+        <line x1="0" y1="116" x2="0" y2="128" stroke-width="2.2"/>
+      </g>
+      <!-- Lantern 2 (Inner Left) -->
+      <g transform="translate(1322, 112) scale(0.76)">
+        <path d="M-18,32 Q0,4 18,32 Z" fill="#9e6424"/>
+        <rect x="-22" y="32" width="44" height="68" fill="url(#p3WindowGlow)"/>
+        <line x1="-10" y1="32" x2="-10" y2="100"/><line x1="10" y1="32" x2="10" y2="100"/>
+        <polygon points="-24,100 24,100 14,116 -14,116" fill="#9e6424"/>
+        <line x1="0" y1="116" x2="0" y2="128" stroke-width="2.2"/>
+      </g>
+      <!-- Lantern 3 (Inner Right) -->
+      <g transform="translate(1672, 102) scale(0.72)">
+        <path d="M-18,32 Q0,4 18,32 Z" fill="#9e6424"/>
+        <rect x="-22" y="32" width="44" height="68" fill="url(#p3WindowGlow)"/>
+        <line x1="-10" y1="32" x2="-10" y2="100"/><line x1="10" y1="32" x2="10" y2="100"/>
+        <polygon points="-24,100 24,100 14,116 -14,116" fill="#9e6424"/>
+        <line x1="0" y1="116" x2="0" y2="128" stroke-width="2.2"/>
+      </g>
+      <!-- Lantern 4 (Far Right) -->
+      <g transform="translate(1762, 136) scale(0.92)">
+        <path d="M-18,32 Q0,4 18,32 Z" fill="#9e6424"/>
+        <rect x="-22" y="32" width="44" height="68" fill="url(#p3WindowGlow)"/>
+        <line x1="-10" y1="32" x2="-10" y2="100"/><line x1="10" y1="32" x2="10" y2="100"/>
+        <polygon points="-24,100 24,100 14,116 -14,116" fill="#9e6424"/>
+        <line x1="0" y1="116" x2="0" y2="128" stroke-width="2.2"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Subtle Vertical Panel Seam Lines at x=600 and x=1200 -->
+  <line x1="600" y1="0" x2="600" y2="1000" stroke="#8c6842" stroke-width="1" opacity="0.35"/>
+  <line x1="1200" y1="0" x2="1200" y2="1000" stroke="#5a4838" stroke-width="1" opacity="0.35"/>
+</svg>

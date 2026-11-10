@@ -12,8 +12,8 @@ execSync(`convert "${bgWallAndWindow}" -resize 340x550^ -gravity center -extent 
 
 // Add subtle decorative label on the card mockup: "Shri Ganeshay Namah" and "Tap Window to Open"
 execSync(`convert /tmp/card_inner.png \\
-  -font Times-Italic -pointsize 13 -fill '#fcebd4' -gravity north -annotate +0+28 "Shri Ganeshay Namah" \\
-  -font Helvetica-Bold -pointsize 11 -fill '#fdf8f0' -undercolor 'rgba(27,54,43,0.85)' -gravity south -annotate +0+32 "  TAP WINDOW TO OPEN  " \\
+  -font Noto-Serif-Italic -pointsize 13 -fill '#fcebd4' -gravity north -annotate +0+28 "Shri Ganeshay Namah" \\
+  -font Noto-Sans-Bold -pointsize 11 -fill '#fdf8f0' -undercolor 'rgba(27,54,43,0.85)' -gravity south -annotate +0+32 "  TAP WINDOW TO OPEN  " \\
   /tmp/card_inner_labeled.png`);
 
 // Rounded corners
@@ -55,15 +55,15 @@ execSync(`convert /tmp/step2.png /tmp/logo_sized.png -geometry +595+55 -composit
 // 6. Typography in the center column (center aligned around x=637)
 execSync(`convert /tmp/step3.png \\
   -gravity north \\
-  -font Palatino-Bold -fill '#9e4252' -pointsize 15 -annotate +50+152 "S H U B H   V I V A H" \\
-  -font Times-Bold -fill '#5a222b' -pointsize 42 -annotate +50+180 "Pallav & Aiswarya" \\
-  -font Palatino-Italic -fill '#8c432d' -pointsize 20 -annotate +50+240 "“From Desert Sands to the River Ganges”" \\
-  -font Palatino-Bold -fill '#b83348' -pointsize 19 -annotate +50+290 "Durgapur (Dec 4–5)   •   Kota (Dec 11–12)" \\
-  -font Palatino-Roman -fill '#6e3832' -pointsize 16 -annotate +50+345 "Together with our families, we joyfully invite you" \\
-  -font Palatino-Roman -fill '#6e3832' -pointsize 16 -annotate +50+370 "to celebrate our sacred wedding union." \\
-  -font Times-Italic -fill '#a85838' -pointsize 15 -annotate +50+425 "— Kolkata Rajbari  •  Royal Rajasthan —" \\
-  -font Palatino-Bold -fill '#9e4252' -pointsize 14 -annotate +50+495 "THE WEDDING STORYBOOK" \\
-  -font Helvetica -fill '#8c432d' -pointsize 13 -annotate +50+525 "pallav-aiswarya-wedding.vercel.app" \\
+  -font Noto-Serif-Bold -fill '#9e4252' -pointsize 15 -annotate +50+152 "S H U B H   V I V A H" \\
+  -font Noto-Serif-Display-Bold -fill '#5a222b' -pointsize 42 -annotate +50+180 "Pallav & Aiswarya" \\
+  -font Noto-Serif-Display-Italic -fill '#8c432d' -pointsize 20 -annotate +50+240 "“From Desert Sands to the River Ganges”" \\
+  -font Noto-Serif-Bold -fill '#b83348' -pointsize 19 -annotate +50+290 "Dec 11–12, 2026   •   Kota, Rajasthan" \\
+  -font Noto-Serif-Regular -fill '#6e3832' -pointsize 16 -annotate +50+345 "Together with our families, we joyfully invite you" \\
+  -font Noto-Serif-Regular -fill '#6e3832' -pointsize 16 -annotate +50+370 "to celebrate our sacred wedding union." \\
+  -font Noto-Serif-Italic -fill '#a85838' -pointsize 15 -annotate +50+425 "— Two Hearts, One Destiny  •  Royal Rajasthan —" \\
+  -font Noto-Serif-Bold -fill '#9e4252' -pointsize 14 -annotate +50+495 "THE WEDDING STORYBOOK" \\
+  -font Noto-Sans-Regular -fill '#8c432d' -pointsize 13 -annotate +50+525 "pallav-invite.vercel.app" \\
   -quality 92 /tmp/preview_refined.jpg`);
 
 fs.copyFileSync('/tmp/preview_refined.jpg', 'public/preview-thumb.jpg');
